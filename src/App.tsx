@@ -1,7 +1,9 @@
+import { RegisterForm } from "./components/RegisterForm";
+
 function App() {
   return (
     <>
-      <h1>TypeScript Learner</h1>
+      <RegisterForm />
     </>
   );
 }
