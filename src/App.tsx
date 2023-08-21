@@ -1,11 +1,9 @@
-import { Quiz } from "./components/Quiz";
+import React from 'react'
 
-function App() {
+export const App:React.FC = () => {
   return (
     <>
-      <Quiz />
+      <h1>Hello React TSX!</h1>
     </>
-  );
+  )
 }
-
-export default App;
