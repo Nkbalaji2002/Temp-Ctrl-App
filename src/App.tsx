@@ -1,9 +1,9 @@
-import { RegisterForm } from "./components/RegisterForm";
+import { Quiz } from "./components/Quiz";
 
 function App() {
   return (
     <>
-      <RegisterForm />
+      <Quiz />
     </>
   );
 }
