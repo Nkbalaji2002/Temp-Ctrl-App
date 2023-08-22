@@ -3,13 +3,19 @@ import "./ToDoList.css";
 import localforage from "localforage";
 import { Add, Delete } from "@mui/icons-material";
 
+interface Todo {
+  id: number;
+  text: string;
+  completed?: boolean;
+}
+
 const ToDoList: React.FC = () => {
-  const [todos, setTodos] = useState<string[]>([]);
-  const [newTodo, setNewTodo] = useState("");
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [newTodo, setNewTodo] = useState<string>("");
 
   useEffect(() => {
     // load tasks from local storage when component mounts
-    localforage.getItem<string[]>("todos").then((savedTodos) => {
+    localforage.getItem<Todo[]>("todos").then((savedTodos) => {
       if (savedTodos) {
         console.log("Loading from local storage: ", savedTodos);
         setTodos(savedTodos);
@@ -25,13 +31,17 @@ const ToDoList: React.FC = () => {
 
   const handleAddTodo = () => {
     if (newTodo.trim() !== "") {
-      setTodos([...todos, newTodo]);
+      const newTodoItem: Todo = {
+        id: Date.now(),
+        text: newTodo,
+      };
+      setTodos([...todos, newTodoItem]);
       setNewTodo("");
     }
   };
 
   const handleDeleteTodo = (index: number) => {
-    const updatedTodos = todos.filter((_, id) => id !== index);
+    const updatedTodos = todos.filter((todo) => todo.id !== index);
     setTodos(updatedTodos);
   };
 
@@ -52,11 +62,11 @@ const ToDoList: React.FC = () => {
           </button>
         </div>
         <ul className="todos">
-          {todos.map((todo, index) => {
+          {todos.map((todo) => {
             return (
-              <li key={index}>
-                {todo}
-                <button onClick={() => handleDeleteTodo(index)}>
+              <li key={todo.id}>
+                <span>{todo.text}</span>
+                <button onClick={() => handleDeleteTodo(todo.id)}>
                   <Delete />
                 </button>
               </li>
