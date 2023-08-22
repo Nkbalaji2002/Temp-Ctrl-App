@@ -30,7 +30,7 @@ const ToDoList: React.FC = () => {
   };
 
   const handleDeleteTodo = (index: number) => {
-    const updatedTodos = todos.filter((_, i) => i !== index);
+    const updatedTodos = todos.filter((_, id) => id !== index);
     setTodos(updatedTodos);
   };
 
