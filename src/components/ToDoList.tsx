@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ToDoList.css";
 import localforage from "localforage";
+import { Add, Delete } from "@mui/icons-material";
 
 const ToDoList: React.FC = () => {
   const [todos, setTodos] = useState<string[]>([]);
@@ -46,14 +47,18 @@ const ToDoList: React.FC = () => {
             value={newTodo}
             onChange={(e) => setNewTodo(e.target.value)}
           />
-          <button onClick={handleAddTodo}>Add</button>
+          <button onClick={handleAddTodo}>
+            <Add />
+          </button>
         </div>
         <ul className="todos">
           {todos.map((todo, index) => {
             return (
               <li key={index}>
                 {todo}
-                <button onClick={() => handleDeleteTodo(index)}>Remove</button>
+                <button onClick={() => handleDeleteTodo(index)}>
+                  <Delete />
+                </button>
               </li>
             );
           })}
