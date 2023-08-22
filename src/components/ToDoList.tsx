@@ -53,7 +53,7 @@ const ToDoList: React.FC = () => {
             return (
               <li key={index}>
                 {todo}
-                <button onClick={() => handleDeleteTodo(index)}>Delete</button>
+                <button onClick={() => handleDeleteTodo(index)}>Remove</button>
               </li>
             );
           })}
