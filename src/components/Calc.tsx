@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./Calc.css";
 import * as math from "mathjs";
+import { Backspace } from "@mui/icons-material";
 
 const Calc: React.FC = () => {
   const [input, setInput] = useState<string>("");
 
-  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "00"];
   const operators = ["+", "-", "*", "/", "(", ")"];
 
   const handleButtonClick = (value: string) => {
@@ -58,6 +59,7 @@ const Calc: React.FC = () => {
           <span className="input-display">{input}</span>
         </div>
         <div className="buttons">
+          {/* operator of buttons */}
           {operators.map((operator) => (
             <button
               key={operator}
@@ -67,11 +69,7 @@ const Calc: React.FC = () => {
               {operator}
             </button>
           ))}
-          {numbers.map((num) => (
-            <button key={num} onClick={() => handleButtonClick(num.toString())}>
-              {num}
-            </button>
-          ))}
+
           <button
             className="operator"
             onClick={handleTogglePositiveandNegative}
@@ -81,15 +79,19 @@ const Calc: React.FC = () => {
           <button className="operator" onClick={handlePercentage}>
             %
           </button>
-          <button className="operator" onClick={handleAddDecimal}>
-            .
+
+          {/* numbers of buttons */}
+          {numbers.map((num) => (
+            <button key={num} onClick={() => handleButtonClick(num.toString())}>
+              {num}
+            </button>
+          ))}
+
+          <button onClick={handleDelete}>
+            <Backspace />
           </button>
-          <button className="operator" onClick={handleDelete}>
-            Del
-          </button>
-          <button className="operator clear" onClick={handleReset}>
-            C
-          </button>
+          <button onClick={handleAddDecimal}>.</button>
+          <button onClick={handleReset}>C</button>
           <button className="equals" onClick={handleCalculate}>
             =
           </button>
