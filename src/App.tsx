@@ -1,11 +1,11 @@
 import React from "react";
-import ToDoList from "./components/ToDoList";
+import Calc from "./components/Calc";
 
 export const App: React.FC = () => {
   return (
     <>
       <div className="app">
-        <ToDoList />
+        <Calc />
       </div>
     </>
   );
