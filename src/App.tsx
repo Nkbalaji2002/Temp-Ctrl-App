@@ -1,24 +1,33 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppState } from "./components/reducers";
-import { updateMessage } from "./components/actions";
+import { CounterState } from "./features/reducers";
 import "./styles/styles.css";
+import { Decrement, Increment, Reset } from "./features/actions";
 
 export const App: React.FC = () => {
   const dispatch = useDispatch();
-  const message = useSelector((state: AppState) => {
-    return state.message;
-  });
-
-  const handleUpdateClick = () => {
-    dispatch(updateMessage("Hello, Redux Updated!"));
-  };
+  const count = useSelector((state: CounterState) => state.count);
 
   return (
     <>
       <div className="app">
-        <h1>{message}</h1>
-        <button onClick={handleUpdateClick}>Change Message</button>
+        <div className="counter-container">
+          <h1 className="title">Counter App</h1>
+          <div className="count-container">
+            <h2 className="count">{count}</h2>
+          </div>
+          <div className="button-container">
+            <button className="increment" onClick={() => dispatch(Increment())}>
+              +
+            </button>
+            <button className="reset" onClick={() => dispatch(Reset())}>
+              0
+            </button>
+            <button className="decrement" onClick={() => dispatch(Decrement())}>
+              -
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
