@@ -1,0 +1,38 @@
+.app {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.quote-container {
+    margin-bottom: 1rem;
+}
+
+.quote {
+    font-size: 24px;
+    line-height: 1.5;
+    color: #444;
+    margin: 0;
+}
+
+.author {
+    margin-top: 0.5rem;
+    font-style: italic;
+    color: #888;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
