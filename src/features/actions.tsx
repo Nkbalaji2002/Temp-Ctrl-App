@@ -1,17 +1,11 @@
 export const Increment = () => {
   return {
-    type: "INCREMENT",
+    type: "INCREMENT_Temperature",
   };
 };
 
 export const Decrement = () => {
   return {
-    type: "DECREMENT",
-  };
-};
-
-export const Reset = () => {
-  return {
-    type: "RESET",
+    type: "DECREMENT_Temperature",
   };
 };

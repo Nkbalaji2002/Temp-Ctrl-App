@@ -1,29 +1,23 @@
-export interface CounterState {
-  count: number;
+export interface TempState {
+  Temp: number;
 }
 
-const initialState: CounterState = {
-  count: 0,
+const initialState: TempState = {
+  Temp: 20,
 };
 
-const counterReducer = (state = initialState, action: any) => {
+const TempReducer = (state = initialState, action: any) => {
   switch (action.type) {
-    case "INCREMENT":
+    case "INCREMENT_Temperature":
       return {
         ...state,
-        count: state.count + 1,
+        Temp: state.Temp + 1,
       };
 
-    case "DECREMENT":
+    case "DECREMENT_Temperature":
       return {
         ...state,
-        count: state.count - 1,
-      };
-
-    case "RESET":
-      return {
-        ...state,
-        count: 0,
+        Temp: state.Temp - 1,
       };
 
     default:
@@ -31,4 +25,4 @@ const counterReducer = (state = initialState, action: any) => {
   }
 };
 
-export default counterReducer;
+export default TempReducer;

@@ -4,9 +4,9 @@ import { App } from "./App.tsx";
 import { Provider } from "react-redux";
 import "./index.css";
 import { createStore } from "redux";
-import counterReducer from "./features/reducers.tsx";
+import TempReducer from "./features/reducers.tsx";
 
-const store = createStore(counterReducer);
+const store = createStore(TempReducer);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

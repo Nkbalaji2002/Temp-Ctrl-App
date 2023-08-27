@@ -1,34 +1,33 @@
-.counter-container {
+.temperature-container {
+  background-color: whitesmoke;
   width: 300px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f1f1f1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   text-align: center;
+  transition: background-color 0.5s;
+  color: #333;
 }
 
 .title {
   font-size: 24px;
-  color: #333;
   margin-bottom: 10px;
 }
 
-.count-container {
+.display-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 120px;
   border: none;
-  border-radius: 90%;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   background-color: rgb(255, 255, 255);
   margin: 20px 80px;
 }
 
-.count {
-  font-size: 2.5rem;
-  color: #333;
+.temperature {
+  font-size: 2.4rem;
 }
 
 .button-container {
@@ -36,28 +35,25 @@
 }
 
 .increment,
-.decrement,
-.reset {
+.decrement {
   width: 40px;
   height: 40px;
-  background-color: #3498db;
+  background-color: #3827cf;
   color: #fff;
   border: none;
   border-radius: 50%;
   font-size: 18px;
   cursor: pointer;
   margin: 0 10px;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .increment:hover,
-.decrement:hover,
-.reset:hover {
-  background-color: #2980b9;
+.decrement:hover {
+  background-color: #2e2397;
 }
 
 .increment:active,
-.decrement:active,
-.reset:active {
+.decrement:active {
   transform: scale(0.95);
 }
