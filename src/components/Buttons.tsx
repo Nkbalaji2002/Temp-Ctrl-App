@@ -1,12 +1,8 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Decrement, Increment } from "../features/actions";
-import { TempState } from "../features/reducers";
+import { Props } from "../features/reducers";
 
-const Buttons: React.FC = () => {
-  const temp = useSelector((state: TempState) => state.Temp);
-  const dispatch = useDispatch();
-
+const Buttons: React.FC<Props> = ({ temp, dispatch }) => {
   return (
     <>
       <div className="button-container">

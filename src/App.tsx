@@ -2,11 +2,13 @@ import React from "react";
 import "./styles/styles.css";
 import Header from "./components/Header";
 import Buttons from "./components/Buttons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { TempState } from "./features/reducers";
+import Display from "./components/Display";
 
 export const App: React.FC = () => {
   const temp = useSelector((state: TempState) => state.Temp);
+  const dispatch = useDispatch()
 
   const getBackgroundColor = () => {
     if (temp >= 30) {
@@ -28,10 +30,8 @@ export const App: React.FC = () => {
           }}
         >
           <Header />
-          <div className="display-container">
-            <h2 className="temperature">{temp}&deg;C</h2>
-          </div>
-          <Buttons />
+          <Display temp={temp} />
+          <Buttons temp={temp} dispatch={dispatch} />
         </div>
       </div>
     </>

@@ -1,6 +1,18 @@
+import { AnyAction, Dispatch } from "redux";
+
 export interface TempState {
   Temp: number;
 }
+
+export interface TempProps {
+  temp: number;
+}
+
+export interface DispatchProps {
+  dispatch: Dispatch<AnyAction>;
+}
+
+export type Props = TempProps & DispatchProps
 
 const initialState: TempState = {
   Temp: 20,
